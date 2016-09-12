@@ -166,5 +166,5 @@ tapas
     }
   })
   .execute()
-  .then((res) => console.log(res.user.friend.id, res.user.friend.name, res.user.friend.age))
+  .then((res) => console.log(res.user.friends))
 ```
