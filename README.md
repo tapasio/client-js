@@ -2,11 +2,11 @@
 
 ## Init
 
-```
+```js
 let tapas = new Tapas()
 ```
 
-```
+```js
 let tapas = new Tapas('websocket', {port: 8080})
 ```
 
@@ -14,7 +14,7 @@ let tapas = new Tapas('websocket', {port: 8080})
 
 ### Select attributes
 
-```
+```js
 tapas
   .need({
     users: {
@@ -28,7 +28,7 @@ tapas
 
 ### Filter by id
 
-```
+```js
 tapas
   .need({
     user: {
@@ -43,7 +43,7 @@ tapas
 
 ### Use Observable
 
-```
+```js
 let users$ = tapas.need({
   users: {
     name: undefined,
@@ -61,7 +61,7 @@ tapas.execute()
 
 ### Relation & nested objects
 
-```
+```js
 tapas
   .need({
     user: {
@@ -83,7 +83,7 @@ TODO
 
 ### Batch multiple queries
 
-```
+```js
 tapas
   .need({users: {name: undefined}})
   .need({articles: {name: undefined}})
@@ -95,7 +95,7 @@ tapas
 
 ### Apply filters
 
-```
+```js
 tapas
   .need({users: {name: undefined}})
   .with(<where, order, size, from, anything to pass to the server>)
@@ -105,7 +105,7 @@ tapas
 
 ## Subscribe
 
-```
+```js
 tapas
   .need({users: {name: undefined}})
   .subscribe()
@@ -116,7 +116,7 @@ tapas
 
 ### Simple mutation
 
-```
+```js
 tapas
   .send({
     user: {
@@ -131,7 +131,7 @@ tapas
 
 ### Batch
 
-```
+```js
 tapas
   .send({
     user: {
@@ -151,7 +151,7 @@ tapas
 
 ### Mutation with relations
 
-```
+```js
 tapas
   .send({
     user: {
