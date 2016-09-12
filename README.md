@@ -38,7 +38,7 @@ tapas
     }
   })
   .execute()
-  .then((res) => console.log(res.users))
+  .then((res) => console.log(res.user))
 ```
 
 ### Use Observable

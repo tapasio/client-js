@@ -1,5 +1,5 @@
 {
-  "name": "tapas-client",
+  "name": "tapas-client-js",
   "version": "1.0.0",
   "description": "",
   "main": "./lib/tapas.js",
@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/AnthonySendra/tapas-client.git"
+    "url": "https://github.com/tapasio/client-js"
   },
   "author": "Anthony Sendra",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/AnthonySendra/tapas-client/issues"
+    "url": "https://github.com/tapasio/client-js/issues"
   },
-  "homepage": "https://github.com/AnthonySendra/tapas-client",
+  "homepage": "https://github.com/tapasio/client-js",
   "devDependencies": {
     "babel": "^6.5.2",
     "babel-core": "^6.14.0",
