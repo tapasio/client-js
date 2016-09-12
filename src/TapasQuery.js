@@ -16,7 +16,7 @@ TapasQuery.prototype.need = function (need) {
 TapasQuery.prototype.execute = function () {
   let request = deepDiffAttributes(this.batch, this.cache)
 
-  console.log(request)
+  console.log(this.batch, this.cache, request)
 }
 
 function deepDiffAttributes (batch, cache) {
@@ -29,7 +29,7 @@ function deepDiffAttributes (batch, cache) {
         if (Object.keys(nestedAttributes).length > 0) {
           result[attribute] = Object.assign({}, nestedAttributes)
         }
-      } else if (cache[attribute] !== batch[attribute]) {
+      } else if (batch[attribute] !== undefined && cache[attribute] !== batch[attribute]) {
         result[attribute] = batch[attribute]
       }
     } else {

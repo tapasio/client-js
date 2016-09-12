@@ -2,7 +2,7 @@ import TapasQuery from './TapasQuery'
 
 function Tapas (config) {
   this.batch = {}
-  this.cache = {}
+  this.cache = {users: {name: 'tutu'}}
 }
 
 Tapas.prototype.need = function (need) {
