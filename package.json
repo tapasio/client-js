@@ -41,6 +41,7 @@
     "webpack": "^1.13.2"
   },
   "dependencies": {
+    "deep-extend": "^0.4.1",
     "deepmerge": "^0.2.10"
   }
 }
