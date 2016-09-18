@@ -1,4 +1,5 @@
 import deepmerge from 'deepmerge'
+import { Observable } from 'rxjs/Observable'
 
 function TapasQuery (batch, cache, need) {
   this.cache = cache
@@ -7,6 +8,13 @@ function TapasQuery (batch, cache, need) {
 
 TapasQuery.prototype.execute = function () {
   let request = deepDiffAttributes(this.batch, this.cache)
+
+  return Observable.create((observer) => {
+    setTimeout(() => {
+      console.log(request)
+      observer.next({users: [{name: 'Anthony'}]})
+    }, 4000)
+  })
 }
 
 function deepDiffAttributes (batch, cache) {
