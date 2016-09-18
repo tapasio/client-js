@@ -1,22 +1,12 @@
-import deepExtend from 'deep-extend'
+import deepmerge from 'deepmerge'
 
 function TapasQuery (batch, cache, need) {
   this.cache = cache
-  this.batch = batch
-
-  return this.need(need)
-}
-
-TapasQuery.prototype.need = function (need) {
-  deepExtend(this.batch, need)
-
-  return this
+  this.batch = deepmerge(batch, need)
 }
 
 TapasQuery.prototype.execute = function () {
   let request = deepDiffAttributes(this.batch, this.cache)
-
-  console.log(this.batch, this.cache, request)
 }
 
 function deepDiffAttributes (batch, cache) {
