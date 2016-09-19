@@ -1,41 +1,23 @@
-import deepmerge from 'deepmerge'
 import { Observable } from 'rxjs/Observable'
 
-function TapasQuery (batch, cache, need) {
+function TapasQuery (cache, need, execute) {
   this.cache = cache
-  this.batch = deepmerge(batch, need)
+  this.need = need
+  this.execute = execute
+}
+
+TapasQuery.prototype.getEntryPoint = function () {
+  return Object.keys(this.need)[0]
+}
+
+TapasQuery.prototype.getQuery = function () {
+  return this.need[this.getEntryPoint()]
 }
 
 TapasQuery.prototype.execute = function () {
-  let request = deepDiffAttributes(this.batch, this.cache)
-
-  return Observable.create((observer) => {
-    setTimeout(() => {
-      console.log(request)
-      observer.next({users: [{name: 'Anthony'}]})
-    }, 4000)
-  })
-}
-
-function deepDiffAttributes (batch, cache) {
-  let result = {}
-
-  Object.keys(batch).forEach(attribute => {
-    if (cache[attribute]) {
-      if (typeof cache[attribute] === 'object') {
-        let nestedAttributes = deepDiffAttributes(batch[attribute], cache[attribute])
-        if (Object.keys(nestedAttributes).length > 0) {
-          result[attribute] = Object.assign({}, nestedAttributes)
-        }
-      } else if (batch[attribute] !== undefined && cache[attribute] !== batch[attribute]) {
-        result[attribute] = batch[attribute]
-      }
-    } else {
-      result[attribute] = batch[attribute]
-    }
-  })
-
-  return result
+  setTimeout(() => {
+    return this.execute()
+  }, 0)
 }
 
 export default TapasQuery
