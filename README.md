@@ -3,7 +3,7 @@
 ## TL;DR
 
 ```js
-let tapas = new Tapas('websocket', 'http://localhost:7513')
+let tapas = new Tapas('ws://localhost:7513')
 
 let usersResponse = tapas.need({
     users: {
@@ -45,11 +45,10 @@ Client is will manage all the communications for you. You'll just have to
 concentrate on the data you need.
 
 To start working with Tapas, create a new instance of `Tapas`, providing the
-name of the transport protocol and the address of the endpoint. The supported
-transport protocols are `http` and `websocket`. 
+URL of the endpoint to reach Tapas Server at. Tapas client will automatically detect the transport layer to use (HTTP or WebSocket) based on the protocol you'll specify in the URL.
 
 ```js
-let tapas = new Tapas('websocket', {endpoint: 'http://localhost:7513'})
+let tapas = new Tapas('ws://localhost:7513'})
 ```
 
 ## Queries
@@ -141,7 +140,7 @@ tapas
       name: undefined,
       age: 26
     },
-    meta: [count]
+    meta: ['count']
   })
 ```
 
