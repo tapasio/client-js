@@ -2,7 +2,40 @@
 
 ## TL;DR
 
-TODO
+```js
+let tapas = new Tapas('websocket', 'http://localhost:7513')
+
+let usersResponse = tapas.need({
+    users: {
+      name: undefined,
+      age: 35
+    }
+  })
+  .fetch()
+  .then((response) => {
+    console.log(response.users)
+  })
+
+let user$ = tapas.need({
+    users: {
+      id: 213
+      stars: undefined
+    }
+  })
+  .subscribe()
+
+// This will log user 213 every time the number of stars changes
+user$.subscribe((response) => {
+  console.log(response.users)
+})
+```
+
+Tapas Client is a powerful front-end side data management layer. It is inspired by Falcor and Relay, and it allows you to
+
+* stop bothering about network requests just ask the data, Tapas will give it to you as soon as possible
+* fetch one-shot or subscribe to the requested data
+* get rid of your REST API, express the need for data in form of queries (and actually ask _exactly_ the data you need)
+
 
 ## Init
 
