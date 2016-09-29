@@ -1,9 +1,9 @@
 describe('Tapas', () => {
-	describe('constructor', () => {
+  describe('constructor', () => {
     it('should accept transport and url arguments', () => {
-			
-		})
-	})
+    
+    })
+  })
 
   describe('need', () => {
     it('method should be exposed', () => {
