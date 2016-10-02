@@ -1,9 +1,46 @@
 function Cache () {
-  this.cache = {user: {name: 'toto', test: {toto: 'toto'}}}
+  this.cache = {
+    users: {
+      13: {
+        filters: [],
+        attrs: {
+          name: 'toto',
+          nested: {
+            tutu: 'tata'
+          }
+        },
+        refs: {dogs: [10]}
+      }
+    },
+    dogs: {
+      10: {
+        filters: [],
+        attrs: {
+          name: 'rex'
+        }
+      }
+    }
+  }
 }
 
 Cache.prototype.compareToCache = function (query) {
+  let entryPoint = Object.keys(query)[0]
+
+  if (query[entryPoint].id) {
+    let id = query[entryPoint].id
+    if (this.cache[entryPoint] && this.cache[entryPoint][id]) {
+      return compareToCacheWithId(query[entryPoint], this.cache[entryPoint][id])
+    }
+  }
+
   return compareToCache(query, this.cache)
+}
+
+function compareToCacheWithId (query, cache) {
+  delete query.id
+
+  let {cached, missing} = compareToCache(query, cache.attrs)
+  console.log(cached, missing)
 }
 
 function compareToCache (query, cache) {
@@ -41,4 +78,3 @@ function compareToCache (query, cache) {
 }
 
 export default Cache
-
