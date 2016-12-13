@@ -1,7 +1,6 @@
 function Cache () {
   let user = {
     1: {
-      __observabes__: [],
       username: 'toto username',
       name: 'toto'
     },
