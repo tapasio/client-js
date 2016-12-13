@@ -1,5 +1,27 @@
 function Cache () {
-  this.cache = {user: {name: 'toto', test: {toto: 'toto'}}}
+  let user = {
+    1: {
+      __observabes__: [],
+      username: 'toto username',
+      name: 'toto'
+    },
+    2: {
+      username: 'tutu username',
+      name: 'tutu'
+    }
+  }
+  let home = {
+    1: {
+      address: 'blabla',
+      users: [user[1], user[2]]
+    },
+    2: {
+      address: 'bla bla bla',
+      users: [user[1]]
+    }
+  }
+
+  this.cache = {user, home}
 }
 
 Cache.prototype.compareToCache = function (query) {

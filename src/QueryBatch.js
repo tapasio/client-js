@@ -16,6 +16,7 @@ QueryBatch.prototype.execute = function (need) {
     return of(cached)
   }
 
+  // todo return observable
   this.batch.push(missing)
 }
 
